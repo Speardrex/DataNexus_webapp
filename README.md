@@ -18,6 +18,21 @@ Key Architectural Decisions:
 * **State Management:** Utilizes `st.session_state` to persist data across user interactions (filtering, cleaning) in a stateless web environment.
 * **In-Memory Processing:** Ensures data privacy by processing files in RAM without permanent server storage.
 
+🌟 Core Features
+
+For Business Users (Functionality)
+
+- Drag-and-Drop Ingestion: Support for both .CSV and .XLSX files.
+- Automated Profiling: Instantly see row counts, missing value heatmaps, and data types.
+- Transformation Hub: Clean data interactively (e.g., "Fill NaN with Mean", "Drop Rows").
+- Interactive Visualization: Zoom, pan, and hover over charts using the Plotly engine.
+
+⚙️ For Engineers (Technical Implementation)
+
+- State Management: Utilizes st.session_state to persist dataframes across widget interactions in a stateless web environment.
+- Vectorization: Backend logic uses Pandas Vectorized Operations instead of loops for O(n) performance.
+- Modular Design: Codebase separated into Ingestion, Profiling, and Visualization modules for maintainability.
+
 
 **Interface Previews**
 
@@ -30,6 +45,12 @@ Key Architectural Decisions:
 
   - The Drag-and-Drop Uploader (Left) and Interactive Dashboard (Right).
   - High-Performance Ingestion: Implements Lazy Loading and Chunking to handle large datasets (100MB+) without browser crashes.
+
+| Data Profiling |
+
+![Data Profile](https://github.com/Speardrex/DataNexus_webapp/blob/main/asset/Data%20Profiling.png)
+
+
 
 | ETL Process |
 
@@ -51,15 +72,15 @@ Key Architectural Decisions:
 
 💾 Smart Architecture: Utilizes Session State caching to ensure data persistence across user interactions.
 
+Key Impact:
+
+- 93% Time Reduction: Routine reporting dropped from 4 hours to ~15 minutes.
+- Zero-Code ETL: Non-technical staff can drop columns, impute missing values, and filter data.
+- Privacy First: In-memory processing ensures no sensitive client data is permanently stored.
+
 Tech Stack:
 
-Frontend: Streamlit (Web Framework)
-
-Backend: Python, Pandas (Data Processing)
-
-Visualization: Plotly Express
-
-Performance: NumPy (Vectorization)
+Frontend: Streamlit (Web Framework), Backend: Python, Pandas (Data Processing), Visualization: Plotly Express, Performance: NumPy (Vectorization)
 
 💻 Installation (Run Locally)
 
@@ -85,9 +106,7 @@ streamlit run app.py
 🔄 How It Works (ETL Pipeline)
 
 Extract: User uploads a raw .csv or .xlsx file.
-
 Transform: The Pandas engine cleans the data in-memory based on user widget inputs.
-
 Load: The cleaned data is visualized on the dashboard and available for export/download.
 
 👨‍💻 Author
