@@ -13,34 +13,45 @@ The application follows a modular **ETL (Extract, Transform, Load)** architectur
 
 ![System Architecture](https://github.com/Speardrex/DataNexus_webapp/blob/main/asset/DataNexusHub-2026-01-07-073514.png)
 
-**Key Architectural Decisions:**
+Key Architectural Decisions:
 * **Lazy Loading:** Implemented via `@st.cache_data` to optimize memory usage for large datasets (O(n) complexity).
 * **State Management:** Utilizes `st.session_state` to persist data across user interactions (filtering, cleaning) in a stateless web environment.
 * **In-Memory Processing:** Ensures data privacy by processing files in RAM without permanent server storage.
 
-Interface Previews
 
-| Ingestion Hub | Visualization Engine |
-|  |  |
-Figure 1: The Drag-and-Drop Uploader (Left) and Interactive Dashboard (Right).
+**Interface Previews**
 
-🌟 Key Features
+| Ingestion Hub |
 
-⚡ High-Performance Ingestion: Implements Lazy Loading and Chunking to handle large datasets (100MB+) without browser crashes.
+![Ingestion Hub](https://github.com/Speardrex/DataNexus_webapp/blob/main/asset/Ingestion.png)
+
+
+⚡ Key Features:
+
+  - The Drag-and-Drop Uploader (Left) and Interactive Dashboard (Right).
+  - High-Performance Ingestion: Implements Lazy Loading and Chunking to handle large datasets (100MB+) without browser crashes.
+
+| ETL Process |
+
+![ETL Hub](https://github.com/Speardrex/DataNexus_webapp/blob/main/asset/ETL.png)
 
 🧹 Self-Service ETL: A "No-Code" Transformation Hub allows users to:
 
-Drop unnecessary columns.
+ -  Drop unnecessary columns.
+ -  Handle missing values (Fill with Mean/0 or Drop Rows).
+ -  Filter data dynamically.
 
-Handle missing values (Fill with Mean/0 or Drop Rows).
+| Visualization Engine |
 
-Filter data dynamically.
+![Vis Hub](https://github.com/Speardrex/DataNexus_webapp/blob/main/asset/visualtisation.png)
 
-📈 Interactive Analytics: Powered by Plotly, users can zoom, pan, and drill down into data points.
+📈 Interactive Analytics: 
+
+ -  Powered by Plotly, users can zoom, pan, and drill down into data points.
 
 💾 Smart Architecture: Utilizes Session State caching to ensure data persistence across user interactions.
 
-🛠️ Tech Stack
+Tech Stack:
 
 Frontend: Streamlit (Web Framework)
 
