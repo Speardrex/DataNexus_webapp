@@ -6,11 +6,22 @@ DataNexus is a full-stack automated ETL (Extract, Transform, Load) web applicati
 
 https://datanexus.streamlit.app/
 
-📸 Interface Previews
+
+## 🏗️ System Architecture
+
+The application follows a modular **ETL (Extract, Transform, Load)** architecture powered by Streamlit's reactive framework.
+
+![System Architecture](https://github.com/Speardrex/DataNexus_webapp/blob/main/asset/DataNexusHub-2026-01-07-073514.png)
+
+**Key Architectural Decisions:**
+* **Lazy Loading:** Implemented via `@st.cache_data` to optimize memory usage for large datasets (O(n) complexity).
+* **State Management:** Utilizes `st.session_state` to persist data across user interactions (filtering, cleaning) in a stateless web environment.
+* **In-Memory Processing:** Ensures data privacy by processing files in RAM without permanent server storage.
+
+Interface Previews
 
 | Ingestion Hub | Visualization Engine |
 |  |  |
-
 Figure 1: The Drag-and-Drop Uploader (Left) and Interactive Dashboard (Right).
 
 🌟 Key Features
